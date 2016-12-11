@@ -28,7 +28,7 @@
   {% endif %}
 
   <select{{ select.attributes }}>
-
+    <option data-url="">{{ select.select_text }}</option>
   {% for option in select.options %}
     <option data-url="{{ option.url }}">{{ option.label }}</option>
   {% endfor %}

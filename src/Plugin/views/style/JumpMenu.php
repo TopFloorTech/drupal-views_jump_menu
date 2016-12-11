@@ -38,6 +38,7 @@ class JumpMenu extends StylePluginBase {
     $options['wrapper_class'] = ['default' => ''];
     $options['label_field'] = ['default' => ''];
     $options['url_field'] = ['default' => ''];
+    $options['select_text'] = ['default' => '-- Select --'];
 
     return $options;
   }
@@ -86,6 +87,13 @@ class JumpMenu extends StylePluginBase {
       '#type' => 'select',
       '#options' => $this->getFieldOptions(),
       '#default_value' => $this->options['url_field'],
+    ];
+
+    $form['select_text'] = [
+      '#title' => $this->t('Select text'),
+      '#description' => $this->t('The text to display as the pre-selected option in the jump menu'),
+      '#type' => 'textfield',
+      '#default_value' => $this->options['select_text'],
     ];
   }
 }

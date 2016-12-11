@@ -50,6 +50,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
   $options = $view->style_plugin->options;
 
   $select = [
+    'select_text' => $options['select_text'],
     'attributes' => new Attribute(array('class' => views_jump_menu_get_select_classes($options))),
     'options' => [],
   ];
