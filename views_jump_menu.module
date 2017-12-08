@@ -69,6 +69,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
      * @var ResultRow $row
      */
     foreach ($rows as $id => $row) {
+      $view->row_index = $row->index;
       $select['options'][$id] = [
         'label' => $view->field[$options['label_field']]->advancedRender($row),
         'url' => $view->field[$options['url_field']]->advancedRender($row),
