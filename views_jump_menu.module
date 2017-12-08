@@ -27,7 +27,7 @@ function views_jump_menu_theme($existing, $type, $theme, $path) {
  *   A cleaned array of class names
  */
 function views_jump_menu_get_select_classes($options) {
-  $class = $options['class'] || '';
+  $class = $options['class'] ?: '';
 
   $class = explode(' ', $class);
   $class[] = 'ViewsJumpMenu';
@@ -48,6 +48,10 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
 
   // View options set by user.
   $options = $view->style_plugin->options;
+
+  if ($options['wrapper_class']) {
+      $variables['attributes']['class'][] = $options['wrapper_class'];
+  }
 
   $select = [
     'select_text' => $options['select_text'],
