@@ -30,7 +30,7 @@
   <select{{ select.attributes }}>
     <option data-url="">{{ select.select_text }}</option>
   {% for option in select.options %}
-    <option data-url="{{ option.url }}">{{ option.label }}</option>
+    <option data-url="{{ option.url }}">{{ option.label|striptags }}</option>
   {% endfor %}
 
   </select>
