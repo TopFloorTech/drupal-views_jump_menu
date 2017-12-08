@@ -7,3 +7,4 @@ views-jump-menu:
     js/views-jump-menu.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
