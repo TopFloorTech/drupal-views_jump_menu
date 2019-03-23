@@ -1,8 +1,5 @@
 views-jump-menu:
   version: 1.x
-  css:
-    theme:
-      css/views-jump-menu.css: {}
   js:
     js/views-jump-menu.js: {}
   dependencies:
