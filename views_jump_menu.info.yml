@@ -4,4 +4,4 @@ description: 'Displays Views results as a Select list that links to an entity wh
 core: 8.x
 package: Views
 dependencies:
-  - views
+  - drupal:views
