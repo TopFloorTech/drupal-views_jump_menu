@@ -1,9 +1,5 @@
 <?php
 
-use Drupal\Core\Template\Attribute;
-use Drupal\views\ResultRow;
-use Drupal\views\ViewExecutable;
-
 \Drupal::moduleHandler()->loadInclude('views_jump_menu', 'inc', 'views_jump_menu.theme');
 
 /**
@@ -40,10 +36,10 @@ function views_jump_menu_get_select_classes($options) {
  * Implements template_preprocess_views_jump_menu();
  */
 function views_jump_menu_preprocess_views_jump_menu(&$variables) {
-  /** @var ViewExecutable $view */
+  /** @var Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
 
-  /** @var ResultRow[] $rows */
+  /** @var Drupal\views\ResultRow[] $rows */
   $rows = $variables['rows'];
 
   // View options set by user.
@@ -55,7 +51,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
 
   $select = [
     'select_text' => $options['select_text'],
-    'attributes' => new Attribute([
+    'attributes' => new Drupal\Core\Template\Attribute([
         'class' => views_jump_menu_get_select_classes($options),
         'title' => $options['select_text'],
     ]),
@@ -66,7 +62,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
 
     /**
      * @var  $id
-     * @var ResultRow $row
+     * @var Drupal\views\ResultRow $row
      */
     foreach ($rows as $id => $row) {
       $view->row_index = $row->index;
