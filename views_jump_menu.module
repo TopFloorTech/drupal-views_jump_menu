@@ -51,6 +51,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
 
   $select = [
     'select_text' => $options['select_text'],
+    'select_label' => $options['select_label'],
     'attributes' => new Drupal\Core\Template\Attribute([
         'class' => views_jump_menu_get_select_classes($options),
         'title' => $options['select_text'],

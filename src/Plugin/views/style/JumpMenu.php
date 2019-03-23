@@ -39,6 +39,7 @@ class JumpMenu extends StylePluginBase {
     $options['label_field'] = ['default' => ''];
     $options['url_field'] = ['default' => ''];
     $options['select_text'] = ['default' => '-- Select --'];
+    $options['select_label'] = ['default' => ''];
 
     return $options;
   }
@@ -94,6 +95,13 @@ class JumpMenu extends StylePluginBase {
       '#description' => $this->t('The text to display as the pre-selected option in the jump menu'),
       '#type' => 'textfield',
       '#default_value' => $this->options['select_text'],
+    ];
+
+    $form['select_label'] = [
+      '#title' => $this->t('Select label'),
+      '#description' => $this->t('The description of the jump menu for screen-readers/accessibility'),
+      '#type' => 'textfield',
+      '#default_value' => $this->options['select_label'],
     ];
   }
 }
