@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains views_jump_menu.module.
+ */
+
 \Drupal::moduleHandler()->loadInclude('views_jump_menu', 'inc', 'views_jump_menu.theme');
 
 /**
@@ -17,12 +22,12 @@ function views_jump_menu_theme($existing, $type, $theme, $path) {
  * Gets classes for the jump menu select element.
  *
  * @param array $options
- *   Options passed in for the select element
+ *   Options passed in for the select element.
  *
  * @return array
- *   A cleaned array of class names
+ *   A cleaned array of class names.
  */
-function views_jump_menu_get_select_classes($options) {
+function views_jump_menu_get_select_classes(array $options) {
   $class = $options['class'] ?: '';
 
   $class = explode(' ', $class);
@@ -33,12 +38,11 @@ function views_jump_menu_get_select_classes($options) {
 }
 
 /**
- * Implements template_preprocess_views_jump_menu();
+ * Implements template_preprocess_views_jump_menu().
  */
 function views_jump_menu_preprocess_views_jump_menu(&$variables) {
   /** @var Drupal\views\ViewExecutable $view */
   $view = $variables['view'];
-
   /** @var Drupal\views\ResultRow[] $rows */
   $rows = $variables['rows'];
 
@@ -46,15 +50,15 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
   $options = $view->style_plugin->options;
 
   if ($options['wrapper_class']) {
-      $variables['attributes']['class'][] = $options['wrapper_class'];
+    $variables['attributes']['class'][] = $options['wrapper_class'];
   }
 
   $select = [
     'select_text' => $options['select_text'],
     'select_label' => $options['select_label'],
     'attributes' => new Drupal\Core\Template\Attribute([
-        'class' => views_jump_menu_get_select_classes($options),
-        'title' => $options['select_text'],
+      'class' => views_jump_menu_get_select_classes($options),
+      'title' => $options['select_text'],
     ]),
     'options' => [],
   ];
@@ -62,7 +66,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
   if (!empty($options['label_field'])) {
 
     /**
-     * @var  $id
+     * @var string $id
      * @var Drupal\views\ResultRow $row
      */
     foreach ($rows as $id => $row) {

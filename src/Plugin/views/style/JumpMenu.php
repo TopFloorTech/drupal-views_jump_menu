@@ -8,7 +8,7 @@ use Drupal\views\Annotation\ViewsStyle;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
- * Class JumpMenu
+ * Class JumpMenu.
  *
  * @ViewsStyle(
  *   id = "jump_menu",
@@ -44,6 +44,9 @@ class JumpMenu extends StylePluginBase {
     return $options;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getFieldOptions() {
     $options[''] = '-- Select --';
 
@@ -104,4 +107,5 @@ class JumpMenu extends StylePluginBase {
       '#default_value' => $this->options['select_label'],
     ];
   }
+
 }
