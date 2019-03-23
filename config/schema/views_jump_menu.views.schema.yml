@@ -17,3 +17,6 @@ views.style.jump_menu:
     select_text:
       type: label
       label: 'Select text'
+    select_label:
+      type: label
+      label: 'Select label'
