@@ -23,9 +23,7 @@ use Drupal\views\Plugin\views\style\StylePluginBase;
 class JumpMenu extends StylePluginBase {
 
   protected $usesRowPlugin = FALSE;
-
   protected $usesRowClass = FALSE;
-
   protected $usesFields = TRUE;
 
   /**
@@ -33,14 +31,12 @@ class JumpMenu extends StylePluginBase {
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
-
     $options['class'] = ['default' => ''];
     $options['wrapper_class'] = ['default' => ''];
     $options['label_field'] = ['default' => ''];
     $options['url_field'] = ['default' => ''];
     $options['select_text'] = ['default' => '-- Select --'];
     $options['select_label'] = ['default' => ''];
-
     return $options;
   }
 
@@ -48,11 +44,8 @@ class JumpMenu extends StylePluginBase {
    * {@inheritdoc}
    */
   public function getFieldOptions() {
-    $options[''] = '-- Select --';
-
-    $options += $this->displayHandler->getFieldLabels(TRUE);
-
-    return $options;
+    $labels = $this->displayHandler->getFieldLabels(TRUE);
+    return array_merge(['' => '-- Select --'], $labels);
   }
 
   /**
@@ -102,7 +95,7 @@ class JumpMenu extends StylePluginBase {
 
     $form['select_label'] = [
       '#title' => $this->t('Select label'),
-      '#description' => $this->t('The description of the jump menu for screen-readers/accessibility'),
+      '#description' => $this->t('The description of the jump menu for screen-readers/accessibility.'),
       '#type' => 'textfield',
       '#default_value' => $this->options['select_label'],
     ];

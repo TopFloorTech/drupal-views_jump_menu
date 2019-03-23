@@ -29,11 +29,9 @@ function views_jump_menu_theme($existing, $type, $theme, $path) {
  */
 function views_jump_menu_get_select_classes(array $options) {
   $class = $options['class'] ?: '';
-
   $class = explode(' ', $class);
   $class[] = 'ViewsJumpMenu';
   $class[] = 'js-viewsJumpMenu';
-
   return array_map('\Drupal\Component\Utility\Html::cleanCssIdentifier', $class);
 }
 
@@ -45,8 +43,6 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
   $view = $variables['view'];
   /** @var Drupal\views\ResultRow[] $rows */
   $rows = $variables['rows'];
-
-  // View options set by user.
   $options = $view->style_plugin->options;
 
   if ($options['wrapper_class']) {
