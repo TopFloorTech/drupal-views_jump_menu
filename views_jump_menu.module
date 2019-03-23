@@ -67,6 +67,19 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
      */
     foreach ($rows as $id => $row) {
       $view->row_index = $row->index;
+
+      // Make sure each field handler has cached the right contents before
+      // rendering them in the select field.
+      foreach (['label_field', 'url_field'] as $fieldType) {
+        /**
+         * @var string $field
+         * @var \Drupal\views\Plugin\views\field\FieldHandlerInterface $handler
+         */
+        foreach ($view->field[$options[$fieldType]]->displayHandler->getHandlers('field') as $field => $handler) {
+          $handler->advancedRender($row);
+        }
+      }
+
       $select['options'][$id] = [
         'label' => $view->field[$options['label_field']]->advancedRender($row),
         'url' => $view->field[$options['url_field']]->advancedRender($row),
