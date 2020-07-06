@@ -5,6 +5,8 @@
  * Contains views_jump_menu.module.
  */
 
+use Drupal\Component\Utility\Html;
+
 \Drupal::moduleHandler()->loadInclude('views_jump_menu', 'inc', 'views_jump_menu.theme');
 
 /**
@@ -81,7 +83,7 @@ function views_jump_menu_preprocess_views_jump_menu(&$variables) {
       }
 
       $select['options'][$id] = [
-        'label' => $view->field[$options['label_field']]->advancedRender($row),
+        'label' => Html::decodeEntities(strip_tags($view->field[$options['label_field']]->advancedRender($row))),
         'url' => $view->field[$options['url_field']]->advancedRender($row),
       ];
     }
