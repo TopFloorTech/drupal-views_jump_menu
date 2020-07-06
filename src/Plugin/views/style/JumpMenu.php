@@ -2,9 +2,7 @@
 
 namespace Drupal\views_jump_menu\Plugin\views\style;
 
-use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\views\Annotation\ViewsStyle;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
